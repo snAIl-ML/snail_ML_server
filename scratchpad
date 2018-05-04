@@ -1,0 +1,4 @@
+post request to upload image
+curl -F 'image=@/Users/vivianallen/Desktop/Day4InitialModelFiles/test images/2018-05-03 18-11-43forwards.jpg' http://localhost:5000/upload
+
+curl http://localhost:5000/upload?image=/Users/vivianallen/Desktop/Day4InitialModelFiles/test images/2018-05-03 18-11-43forwards.jpg

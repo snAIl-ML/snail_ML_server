@@ -1,0 +1,5 @@
+[
+  "test/test_retrain_interface.py::test_get_retrain_command_generates_command_string_properly",
+  "test/test_retrain_interface.py::test_run_bash_command_runs_command",
+  "test/test_retrain_interface.py::test_get_classify_command_generates_command_string_properly"
+]
