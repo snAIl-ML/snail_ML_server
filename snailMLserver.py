@@ -1,12 +1,10 @@
 import os
 import path_helper_main_ml
-from label_image_no_cli import classify_image
+# from label_image_no_cli import classify_image
 from flask import *
 
 
 app = Flask(__name__)
-
-app.config['UPLOAD_FOLDER'] = 'current_image'
 
 @app.route("/")
 def hello():
@@ -15,9 +13,9 @@ def hello():
 @app.route('/upload', methods=['POST'])
 def upload_file():
     file = request.files['image']
-    savepath = os.path.join(app.config['UPLOAD_FOLDER'], file.filename)
+    savepath = os.path.join("./current_image", file.filename)
     file.save(savepath)
-    move = classify_image('ml/Day4InitialModel', 'Day4InitialModel', savepath)[0][0]
+    # move = classify_image('ml/Day4InitialModel', 'Day4InitialModel', savepath)[0][0]
     os.remove(savepath)
     return move
 
