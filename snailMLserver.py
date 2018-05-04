@@ -6,8 +6,7 @@ from flask import *
 
 app = Flask(__name__)
 
-UPLOAD_FOLDER = os.path.basename('current_image')
-app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+app.config['UPLOAD_FOLDER'] = 'current_image'
 
 @app.route("/")
 def hello():
