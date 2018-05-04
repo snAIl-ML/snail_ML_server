@@ -19,6 +19,7 @@ def upload_file():
     savepath = os.path.join(app.config['UPLOAD_FOLDER'], file.filename)
     file.save(savepath)
     move = classify_image('ml/Day4InitialModel', 'Day4InitialModel', savepath)[0][0]
+    os.remove(savepath)
     return move
 
 if __name__ == "__main__":
