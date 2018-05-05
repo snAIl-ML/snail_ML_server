@@ -1,1 +1,1 @@
-web: python snailMLserver.py
+web: gunicorn snailMLserver:app
