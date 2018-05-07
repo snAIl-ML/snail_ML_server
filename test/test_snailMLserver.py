@@ -12,21 +12,16 @@ def test_uploading_an_image_returns_forwards_pivot_left_or_pivot_right():
     # with the way the filepath is handled...
     tester = app.test_client()
     response = tester.post('/upload', data={'image': open('test_image_forwards.jpg', 'rb')})
+    response_set = [b'forward', b'pivot_left',  b'pivot_right']
     assert (response.status_code) == 200
-    forward_response = b'forward' in response.data
-    pivot_left_response = b'pivot_left' in response.data
-    pivot_right_response = b'pivot_right' in response.data
-    assert (forward_response or pivot_left_response or pivot_right_response)
+    assert (response.data in response_set)
 
-def test_initializing_the_model_into_memory_allows_multiple_requests():
+def test_image_classifier_allows_multiple_requests():
     tester = app.test_client()
     response1 = tester.post('/upload', data={'image': open('test_image_forwards.jpg', 'rb')})
     response2 = tester.post('/upload', data={'image': open('test_image_forwards.jpg', 'rb')})
-    forward_response1 = b'forward' in response1.data
-    pivot_left_response1 = b'pivot_left' in response1.data
-    pivot_right_response1 = b'pivot_right' in response1.data
-    assert (forward_response1 or pivot_left_response1 or pivot_right_response1)
-    forward_response2 = b'forward' in response2.data
-    pivot_left_response2 = b'pivot_left' in response2.data
-    pivot_right_response2 = b'pivot_right' in response2.data
-    assert (forward_response2 or pivot_left_response2 or pivot_right_response2)
+    response_set = [b'forward', b'pivot_left',  b'pivot_right']
+    assert (response1.status_code) == 200
+    assert (response1.data in response_set)
+    assert (response2.status_code) == 200
+    assert (response2.data in response_set)
