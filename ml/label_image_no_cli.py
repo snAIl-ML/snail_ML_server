@@ -42,7 +42,7 @@ def classify_image(model_path, model_name, img_path):
       with graph.as_default():
         tf.import_graph_def(graph_def)
 
-      return graph
+      return graph # can this be stored in memory or as environment variable? pretty hefty for ENV but maybe possible
 
     def read_tensor_from_image_file(file_name,
                                     input_height=299,
@@ -65,22 +65,22 @@ def classify_image(model_path, model_name, img_path):
             file_reader, channels=3, name="jpeg_reader")
       float_caster = tf.cast(image_reader, tf.float32)
       dims_expander = tf.expand_dims(float_caster, 0)
-      resized = tf.image.resize_bilinear(dims_expander, [input_height, input_width])
+      resized = tf.image.resize_bilinear(dims_expander, [input_height, input_width]) # bet this bit is slow
       normalized = tf.divide(tf.subtract(resized, [input_mean]), [input_std])
-      sess = tf.Session()
+      sess = tf.Session() # does this process close? possible memory leak cause..
       result = sess.run(normalized)
 
       return result
 
 
-    def load_labels(label_file):
+    def load_labels(label_file): # can probably turn this into ENV stuff also? investigate output, maybe it's not just strings...
       label = []
       proto_as_ascii_lines = tf.gfile.GFile(label_file).readlines()
       for l in proto_as_ascii_lines:
         label.append(l.rstrip())
       return label
 
-    graph = load_graph(model_file)
+    graph = load_graph(model_file) # this bit here is probs heavy, reduce calls to this as much as possible
     t = read_tensor_from_image_file(
         file_name,
         input_height=input_height,
@@ -93,11 +93,11 @@ def classify_image(model_path, model_name, img_path):
     input_operation = graph.get_operation_by_name(input_name)
     output_operation = graph.get_operation_by_name(output_name)
 
-    with tf.Session(graph=graph) as sess:
+    with tf.Session(graph=graph) as sess: # this bit is the core of the routine
         results = sess.run(output_operation.outputs[0], {
             input_operation.outputs[0]: t
         })
-    results = np.squeeze(results)
+    results = np.squeeze(results) # might be trivial, but can cut off everything except the first choice?
 
     top_k = results.argsort()[-5:][::-1]
     labels = load_labels(label_file)
