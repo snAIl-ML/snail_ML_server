@@ -3,3 +3,4 @@ requests==2.18.4
 numpy==1.14.2
 tensorflow==1.8.0
 tensorflow_hub==0.1.0
+gunicorn==19.8.1
