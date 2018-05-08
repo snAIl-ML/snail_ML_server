@@ -30,10 +30,18 @@ def welcome_page():
 @app.route('/ai')
 def self_driven():
     return 'You are in the url designated to start and stop buttons!'
+
 @app.route('/rc')
 def user_driven():
     return 'You are in the url designated to left, right and forward buttons!'
 
+@app.route('/making_of')
+def tutorials():
+    return 'You are in the url designated to explain how this project made!'
+
+@app.route('/authors')
+def authors():
+    return 'You are in the url designated to introduce you to the 4 authors!'    
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0')
