@@ -1,9 +1,10 @@
+from flask import Flask, render_template, url_for
 import os
 import path_helper_main_ml
 from label_image_no_cli import initialize_classifier, classify_image
 from flask import *
 
-graph, label = initialize_classifier('ml/Day4InitialModel', 'Day4InitialModel')
+graph, label = initialize_classifier('ml/train2model', 'training2model')
 
 app = Flask(__name__)
 
