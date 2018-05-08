@@ -7,8 +7,13 @@
 
 <body>
 <header class="navbar">
-<a href = 'https://medium.com/team-snail'>
-<img class='logo' src='/logo/logo1.pdf' alt='T' width=40 heigh=40 >
+  <a href = 'https://medium.com/team-snail'>
+  <img src="{{url_for('static', filename='logo.png')}}" width=100 heigh=100 >
+  </a>
+  </br>
+  <a href = 'https://github.com/snAIl-ML'>
+  <img src="{{url_for('static', filename='octocat.png')}}" width=100 heigh=100 >
+  </a>
   <form action="/upload" method="post" enctype="multipart/form-data" >
       <span>
         Browse <input type="file" name="image">
