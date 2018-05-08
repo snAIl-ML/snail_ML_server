@@ -1,4 +1,4 @@
-# from flask import Flask, render_template, url_for
+from flask import Flask, render_template, url_for
 # import os
 # import path_helper_main_ml
 # from label_image_no_cli import initialize_classifier, classify_image
@@ -25,7 +25,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def welcome_page():
-    return 'Welcome to sn_AI_l!'
+    return render_template('index.html')
 
 @app.route('/ai')
 def self_driven():
@@ -33,7 +33,7 @@ def self_driven():
 
 @app.route('/rc')
 def user_driven():
-    return 'You are in the url designated to left, right and forward buttons!'
+    return render_template('rc.html')
 
 @app.route('/making_of')
 def tutorials():
@@ -41,7 +41,7 @@ def tutorials():
 
 @app.route('/authors')
 def authors():
-    return 'You are in the url designated to introduce you to the 4 authors!'    
+    return 'You are in the url designated to introduce you to the 4 authors!'
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0')
