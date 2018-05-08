@@ -2,19 +2,20 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>sn-AI-l image submission</title>
+  <title>sn-AI-l remote control</title>
 </head>
 
 <body>
-<h1>You are in the url designated to left, right and forward buttons!</h1>
+<h1>sn-AI-l remote control</h1>
+<img src={{image_url}}></img>
 <header class="navbar">
-  <a href='/'>
+  <a href='/route_left'>
   <img src="{{url_for('static', filename='left.png')}}" width=80 heigh=80 >
   </a>
-  <a href='/'>
+  <a href='/route_forward'>
   <img src="{{url_for('static', filename='forward.png')}}" width=80 heigh=80 >
   </a>
-  <a href='/'>
+  <a href='/route_right'>
   <img src="{{url_for('static', filename='right.png')}}" width=80 heigh=80 >
   </a>
 </header>
