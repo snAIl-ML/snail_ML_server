@@ -4,7 +4,7 @@ import path_helper_main_ml
 from label_image_no_cli import initialize_classifier, classify_image
 from flask import *
 
-graph, label = initialize_classifier('ml/train2model', 'training2model')
+graph, label = initialize_classifier('ml/model8MayP2', 'model8MayP2')
 
 app = Flask(__name__)
 

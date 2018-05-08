@@ -23,3 +23,4 @@ def retrain_model(
     model_name="retrained_model"
     ):
     run_bash_command(get_retrain_command(images_path, module_url, model_path, model_name))
+retrain_model(images_path = "/Users/iD/Desktop/model8May",model_path="./model8May", model_name="model8May")
