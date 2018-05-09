@@ -1,7 +1,7 @@
 import os
 import path_helper_main_ml
 from classifier import initialize_classifier, classify_image
-from flask import Flask, render_template, url_for, redirect
+from flask import Flask, render_template, url_for, redirect, request
 import requests
 
 graph, label = initialize_classifier()
