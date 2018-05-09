@@ -1,11 +1,16 @@
+import os
+import path_helper_main_ml
+from label_image_no_cli import initialize_classifier, classify_image
 from flask import Flask, render_template, url_for, redirect
 import requests
 
-URL = 'http://192.168.48.195:5000'
+graph, label = initialize_classifier('ml/model8MayP2', 'model8MayP2')
+URL = 'http://192.168.49.20:5000'
 
 from flask import Flask
 app = Flask(__name__)
 
+# USER ROUTES
 @app.route('/')
 def welcome_page():
     return render_template('index.html')
@@ -43,6 +48,17 @@ def get_move_forward():
 def get_move_right():
     right_command = requests.get(URL + '/piv_right')
     return redirect('/rc')
+
+# API ROUTES
+@app.route('/upload', methods=['POST'])
+def upload_file():
+    file = request.files['image']
+    savepath = os.path.join("./current_image", file.filename)
+    file.save(savepath)
+    move = classify_image(savepath, graph, label)[0][0]
+    os.remove(savepath)
+    return move
+
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=8000)
