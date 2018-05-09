@@ -25,8 +25,11 @@ import re
 def get_model_name(path="./model"):
     model_name = [x for x in os.listdir(path) if re.match(".*(.pb)", x)][0]
     return model_name.split(".pb")[0]
-    
-def initialize_classifier(model_path, model_name):
+
+def initialize_classifier(
+    model_path="./model",
+    model_name=get_model_name()
+    ):
 
     # load graph
     model_file = model_path + "/" + model_name + ".pb"
