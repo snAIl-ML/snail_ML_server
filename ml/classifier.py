@@ -22,17 +22,16 @@ import tensorflow as tf
 import os
 import re
 
-def get_model_name(path="./model"):
+def get_model_name(path="./ml/model"):
     model_name = [x for x in os.listdir(path) if re.match(".*(.pb)", x)][0]
     return model_name.split(".pb")[0]
 
 def initialize_classifier(
-    model_path="./model",
     model_name=get_model_name()
     ):
 
     # load graph
-    model_file = model_path + "/" + model_name + ".pb"
+    model_file = "./ml/model/" + model_name + ".pb"
     graph = tf.Graph()
     graph_def = tf.GraphDef()
     with open(model_file, "rb") as f:
@@ -41,7 +40,7 @@ def initialize_classifier(
       tf.import_graph_def(graph_def)
 
     # load labels
-    label_file = model_path + "/" + model_name + "_labels.txt"
+    label_file = "./ml/model/" + model_name + "_labels.txt"
     label = []
     proto_as_ascii_lines = tf.gfile.GFile(label_file).readlines()
     for l in proto_as_ascii_lines:
