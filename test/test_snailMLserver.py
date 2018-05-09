@@ -1,12 +1,13 @@
 import path_helper_test_main
 from snailMLserver import app
 
-def test_index_page_has_upload_form():
+# MAIN INTERFACE TESTS
+def test_index_page_has_x_SPURIOUS_AT_PRESENT():
     tester = app.test_client()
     response = tester.get('/', content_type='html/text')
     assert (response.status_code) == 200
-    assert (b'form action="/upload" method="post"' in response.data)
 
+# API TESTS
 def test_uploading_an_image_returns_forwards_pivot_left_or_pivot_right():
     #nb test image has to be in root for this test to work, some problem
     # with the way the filepath is handled...

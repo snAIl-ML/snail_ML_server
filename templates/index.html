@@ -6,6 +6,7 @@
 </head>
 
 <body>
+<h1>Welcome to sn_AI_l!</h1>
 <header class="navbar">
   <a href = 'https://medium.com/team-snail'>
   <img src="{{url_for('static', filename='logo.png')}}" width=100 heigh=100 >
@@ -14,12 +15,16 @@
   <a href = 'https://github.com/snAIl-ML'>
   <img src="{{url_for('static', filename='octocat.png')}}" width=100 heigh=100 >
   </a>
-  <form action="/upload" method="post" enctype="multipart/form-data" >
-      <span>
-        Browse <input type="file" name="image">
-      </span>
-    <input type="submit" value="Upload your image" class="btn btn-primary">
+  <a href='/ai'>
+  <img src="{{url_for('static', filename='ai.jpg')}}" width=100 heigh=100 >
+  </a>
+  <form>
+  When using the Remote Control mode, please enter the IP adress in use:<br>
+  <input type="text" name="ip"><br>
   </form>
+  <a href='/rc'>
+  <img src="{{url_for('static', filename='rc.png')}}" width=100 heigh=100 >
+  </a>
 </header>
 </body>
 </html>
