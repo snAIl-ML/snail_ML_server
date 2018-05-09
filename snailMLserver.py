@@ -31,15 +31,24 @@ def select_mode_page():
 def self_driven():
     return render_template('ai.html')
 
-@app.route('/start')
-def start_ai():
-    start = requests.get(session['ip'] + '/ai_start')
+# @app.route('/start')
+# def start_ai():
+#     start = requests.get(session['ip'] + '/ai_start')
+#     return redirect('/in_game')
+
+# @app.route('/stop')
+# def stop_ai():
+#     session['continue_game'] = False
+#     return redirect('/continue_game')
+
+@app.route('/ai_move')
+def ai_move():
+    requests.get(session['ip'] + '/ai_move')
     return redirect('/ai')
 
-@app.route('/stop')
-def stop_ai():
-    stop = requests.get(session['ip'] + '/ai_stop')
-    return redirect('/ai')
+# @app.route('/continue_game')
+#     if session['continue_game']: return redirect('/in_game')
+#     else: redirect('/ai')
 
 # USER ROUTES RC
 
@@ -83,7 +92,6 @@ def upload_file():
     move = classify_image(savepath, graph, label)[0][0]
     os.remove(savepath)
     return move
-
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=8000)
