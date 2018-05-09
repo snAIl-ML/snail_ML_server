@@ -1,10 +1,10 @@
 import os
 import path_helper_main_ml
-from label_image_no_cli import initialize_classifier, classify_image
+from classifier import initialize_classifier, classify_image
 from flask import Flask, render_template, url_for, redirect
 import requests
 
-graph, label = initialize_classifier('ml/model8MayP2', 'model8MayP2')
+graph, label = initialize_classifier()
 URL = 'http://192.168.49.20:5000'
 
 from flask import Flask
