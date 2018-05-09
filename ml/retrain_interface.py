@@ -1,4 +1,5 @@
 import os
+import time
 from module_urls import module_urls
 
 def get_retrain_command(images_path, module_url, model_path, model_name):
@@ -16,10 +17,7 @@ def get_retrain_command(images_path, module_url, model_path, model_name):
 def run_bash_command(command):
     os.system(command)
 
-def retrain_model(
-    images_path,
-    module_url=module_urls["inception_v3"],
-    model_path="./retrained_model",
-    model_name="retrained_model"
-    ):
+def retrain_model(images_path, module_url=module_urls["inception_v3"]):
+    model_name = "snail_" + time.strftime("%Y_%b_%d_%a_%H_%M", time.localtime())
+    model_path = "./" + model_name
     run_bash_command(get_retrain_command(images_path, module_url, model_path, model_name))
