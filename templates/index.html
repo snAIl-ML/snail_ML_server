@@ -12,6 +12,7 @@
       a:hover {
         text-color: #ccc;
       }
+
     </style>
   </head>
 
@@ -25,10 +26,10 @@
     <div style="margin: 50px">
       <form class="" action="/set_ip_address" method="get">
         <label for="ip">Enter IP address of raspberry pi</label>
-        <input type="text" name="ip" value="">
+        <input type="text" name="ip" placeholder="000.000.000.000" required pattern="^([0-9]{1,3}\.){3}[0-9]{1,3}$">
         <br>
         <label for="ip">Enter IP address of host machine</label>
-        <input type="text" name="host_ip" value="">
+        <input type="text" name="host_ip" placeholder="000.000.000.000" required pattern="^([0-9]{1,3}\.){3}[0-9]{1,3}$">
         <br>
         <input type="submit" name="submit" value="Submit and go to RC mode">
       </form>
