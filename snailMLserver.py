@@ -27,7 +27,7 @@ def select_mode_page():
 @app.route('/rc')
 def user_driven():
     html_return = requests.get(session['ip']).text
-    image_url = URL + html_return.split("img src=")[1].split('><')[0]
+    image_url = session['ip'] + html_return.split("img src=")[1].split('><')[0]
     return render_template('rc.html',image_url=image_url)
 
 @app.route('/route_left')
