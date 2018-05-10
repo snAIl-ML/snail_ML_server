@@ -2,6 +2,7 @@
 import os
 import requests
 from flask import Flask, render_template, redirect, request
+# Attention, linter stating: E:  5, 0: Unable to import 'classifier' (import-error)
 from classifier import initialize_classifier, classify_image
 
 GRAPH, LABEL = initialize_classifier()
