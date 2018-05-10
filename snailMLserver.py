@@ -1,8 +1,7 @@
 'Routes of the server'
 import os
-import path_helper_main_ml
 from classifier import initialize_classifier, classify_image
-from flask import Flask, render_template, url_for, redirect, request
+from flask import Flask, render_template, redirect, request
 import requests
 
 graph, label = initialize_classifier()
@@ -42,26 +41,25 @@ def authors():
 @app.route('/route_left')
 def get_move_left():
     'Move left request'
-    left_command = requests.get(URL + '/piv_left')
-    print(left_command)
+    requests.get(URL + '/piv_left')
     return redirect('/rc')
 
 @app.route('/route_forward')
 def get_move_forward():
     'Move forward request'
-    forward_command = requests.get(URL + '/forward')
+    requests.get(URL + '/forward')
     return redirect('/rc')
 
 @app.route('/route_right')
 def get_move_right():
     'Move right request'
-    right_command = requests.get(URL + '/piv_right')
+    requests.get(URL + '/piv_right')
     return redirect('/rc')
 
 # API ROUTES
 @app.route('/upload', methods=['POST'])
 def upload_file():
-    'API routes'
+    'API routess'
     file = request.files['image']
     savepath = os.path.join("./current_image", file.filename)
     file.save(savepath)
