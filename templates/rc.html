@@ -5,22 +5,52 @@
     <title>sn-AI-l remote control</title>
     <link rel="stylesheet" href="/css/style_rc.css">
     <style>
+
       body{
         background-color: #282c34;
       }
+
+      #logo{
+        margin: 50px;
+        text-align: center;
+      }
+
+      #current-image{
+        margin-top: 50px;
+        margin-bottom: 50px;
+        border: 5px solid white;
+        width: 640px;
+        heigh: 480px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      #actions{
+        text-align: center;
+      }
+
+      #ai-div{
+        text-align: center;
+        margin: 50px;
+      }
+
     </style>
+
   </head>
 
-  <body style=" text-align: center;">
-    <div >
+  <body>
+    <div id="logo">
       <a href="/">
-        <img style="margin-top: 50px;" src="{{url_for('static', filename='logo.png')}}" width=200 heigh=200 </h1>
+        <img src="{{url_for('static', filename='logo.png')}}" width=200 heigh=200 </h1>
       </a>
     </div>
-    <div style="margin: 50px;">
-      <img src={{image_url}} style="border: 5px solid white;"></img>
+
+    <div id="current-image">
+      <img src={{image_url}} width=640 height=480></img>
     </div>
-    </div>
+
+    <div id="actions">
       <a href='/route_left'>
         <img src="{{url_for('static', filename='left.png')}}" width=80 heigh=80 >
       </a>
@@ -31,10 +61,12 @@
         <img src="{{url_for('static', filename='right.png')}}" width=80 heigh=80 >
       </a>
     </div>
-    <div style="margin: 50px;">
+
+    <div id="ai-div">
       <a href='/ai_move'>
         <img src="{{url_for('static', filename='robohead.png')}}" width=80 heigh=80 >
       </a>
     </div>
+
   </body>
 </html>
