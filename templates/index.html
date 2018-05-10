@@ -1,30 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>sn-AI-l image submission</title>
-</head>
 
-<body>
-<h1>SNAIL</h1>
-<header class="navbar">
-  <span>
-    <a href = 'https://medium.com/team-snail'>
-      <img src="{{url_for('static', filename='logo.png')}}" width=100 heigh=100 >
-    </a>
-    <a href = 'https://github.com/snAIl-ML'>
-      <img src="{{url_for('static', filename='octocat.png')}}" width=100 heigh=100 >
-    </a>
-  </span>
-</header>
-<form class="" action="/set_ip_address" method="get">
-  <label for="ip">Enter IP address of raspberry pi</label>
-  <input type="text" name="ip" value="">
-  <br>
-  <label for="ip">Enter IP address of host machine</label>
-  <input type="text" name="host_ip" value="">
-  <br>
-  <input type="submit" name="submit" value="Submit and go to RC mode">
-</form>
-</body>
+  <head>
+    <meta charset="UTF-8">
+    <title>sn-AI-l image submission</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.12/css/all.css" integrity="sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9" crossorigin="anonymous">
+    <style media="screen">
+      a:link {
+        text-decoration: none;
+      }
+      a:hover {
+        text-color: #ccc;
+      }
+    </style>
+  </head>
+
+  <body style="background-color: #282c34; color:#fff; text-align: center">
+    <div style="text-align: center">
+      <img style="margin-top: 50px;" src="{{url_for('static', filename='logo.png')}}" width=200 heigh=200 </h1>
+    </div>
+
+    <div style="margin: 50px">
+      <form class="" action="/set_ip_address" method="get">
+        <label for="ip">Enter IP address of raspberry pi</label>
+        <input type="text" name="ip" value="">
+        <br>
+        <label for="ip">Enter IP address of host machine</label>
+        <input type="text" name="host_ip" value="">
+        <br>
+        <input type="submit" name="submit" value="Submit and go to RC mode">
+      </form>
+    </div>
+
+    <div class="footer" style="margin-top: 50px;">
+      <a href='https://medium.com/team-snail' style="color: #fff; font-size: 4em;">
+        <i class="fab fa-medium"></i>
+      </a>
+      <a href='https://github.com/snAIl-ML' style="color: #fff; font-size: 4em;">
+        <i class="fab fa-github-square"></i>
+      </a>
+    </div>
+
+  </body>
+
 </html>
