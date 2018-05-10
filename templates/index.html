@@ -17,14 +17,16 @@
         color:#fff;
         text-align: center
       }
-
+      #logo {
+        margin: 50px;
+      }
     </style>
   </head>
 
   <body>
-    <div id="logo" style="text-align: center">
+    <div id="logo">
       <a href="/">
-        <img style="margin-top: 50px;" src="{{url_for('static', filename='logo.png')}}" width=200 heigh=200 </h1>
+        <img src="{{url_for('static', filename='logo.png')}}" width=200 heigh=200 </h1>
       </a>
     </div>
 
