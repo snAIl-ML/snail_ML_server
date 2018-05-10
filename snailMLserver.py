@@ -32,18 +32,18 @@ def user_driven():
 
 @app.route('/route_left')
 def get_move_left():
-    left_command = requests.get(URL + '/piv_left')
+    left_command = requests.get(session['ip'] + '/piv_left')
     print(left_command)
     return redirect('/rc')
 
 @app.route('/route_forward')
 def get_move_forward():
-    forward_command = requests.get(URL + '/forward')
+    forward_command = requests.get(session['ip'] + '/forward')
     return redirect('/rc')
 
 @app.route('/route_right')
 def get_move_right():
-    right_command = requests.get(URL + '/piv_right')
+    right_command = requests.get(session['ip'] + '/piv_right')
     return redirect('/rc')
 
 # API ROUTES
