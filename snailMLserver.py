@@ -1,7 +1,7 @@
 import os
 import path_helper_main_ml
 from classifier import initialize_classifier, classify_image
-from flask import Flask, render_template, url_for, redirect, request
+from flask import Flask, render_template, url_for, redirect, request, session
 import requests
 
 graph, label = initialize_classifier()
@@ -17,7 +17,7 @@ def welcome_page():
 
 @app.route('/set_ip_address')
 def set_ip_address():
-    session['ip'] = 'http://' + request.args.get('ip') + ':' + REMOTE_API_PORT
+    session['ip'] = 'http://' + request.args['ip'] + ':' + REMOTE_API_PORT
     return redirect('/given_ip')
 
 @app.route('/given_ip')
