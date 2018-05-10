@@ -6,6 +6,7 @@ import requests
 
 graph, label = initialize_classifier()
 REMOTE_API_PORT = "5000"
+HOST_PORT = "8000"
 
 app = Flask(__name__)
 app.secret_key = 'SUPER SECRET KEY'
@@ -18,7 +19,8 @@ def welcome_page():
 @app.route('/set_ip_address')
 def set_ip_address():
     session['ip'] = 'http://' + request.args['ip'] + ':' + REMOTE_API_PORT
-    return redirect('/given_ip')
+    session['host_ip'] = 'http://' + request.args['host_ip'] + ':' + HOST_PORT
+    return redirect('/rc')
 
 @app.route('/given_ip')
 def select_mode_page():
@@ -58,8 +60,7 @@ def upload_file():
 
 @app.route('/ai_move')
 def ai_move():
-    current_url = request.base_url.split("/ai_move")[0]
-    requests.get(session['ip'] + '/ai_move?host_url=' + current_url + '/upload')
+    requests.get(session['ip'] + '/ai_move?host_url=' + session['host_ip'] + '/upload')
     return redirect('/rc')
 
 if __name__ == "__main__":

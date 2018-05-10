@@ -8,24 +8,23 @@
 <body>
 <h1>Welcome to sn_AI_l!</h1>
 <header class="navbar">
-  <a href = 'https://medium.com/team-snail'>
-  <img src="{{url_for('static', filename='logo.png')}}" width=100 heigh=100 >
-  </a>
-  </br>
-  <a href = 'https://github.com/snAIl-ML'>
-  <img src="{{url_for('static', filename='octocat.png')}}" width=100 heigh=100 >
-  </a>
-  <a href='/ai'>
-  <img src="{{url_for('static', filename='ai.jpg')}}" width=100 heigh=100 >
-  </a>
-  When using the Remote Control mode, please enter the IP adress in use:<br>
-  <form class="" action="/set_ip_address" method="get">
-    <input type="text" name="ip" value="">
-    <input type="submit" name="submit" value="Submit">
-  </form>
-  <a href='/rc'>
-  <img src="{{url_for('static', filename='rc.png')}}" width=100 heigh=100 >
-  </a>
+  <span>
+    <a href = 'https://medium.com/team-snail'>
+      <img src="{{url_for('static', filename='logo.png')}}" width=100 heigh=100 >
+    </a>
+    <a href = 'https://github.com/snAIl-ML'>
+      <img src="{{url_for('static', filename='octocat.png')}}" width=100 heigh=100 >
+    </a>
+  </span>
 </header>
+<form class="" action="/set_ip_address" method="get">
+  <label for="ip">Enter IP address of raspberry pi</label>
+  <input type="text" name="ip" value="">
+  <br>
+  <label for="ip">Enter IP address of host machine</label>
+  <input type="text" name="host_ip" value="">
+  <br>
+  <input type="submit" name="submit" value="Submit and go to RC mode">
+</form>
 </body>
 </html>
