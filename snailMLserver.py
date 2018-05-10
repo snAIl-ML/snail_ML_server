@@ -5,33 +5,30 @@ from flask import Flask, render_template, url_for, redirect, request
 import requests
 
 graph, label = initialize_classifier()
-URL = 'http://192.168.49.20:5000'
+REMOTE_API_PORT = "5000"
 
-from flask import Flask
 app = Flask(__name__)
+app.secret_key = 'SUPER SECRET KEY'
 
 # USER ROUTES
 @app.route('/')
 def welcome_page():
     return render_template('index.html')
 
-@app.route('/ai')
-def self_driven():
-    return 'You are in the url designated to start and stop buttons!'
+@app.route('/set_ip_address')
+def set_ip_address():
+    session['ip'] = 'http://' + request.args.get('ip') + ':' + REMOTE_API_PORT
+    return redirect('/given_ip')
+
+@app.route('/given_ip')
+def select_mode_page():
+    return render_template('given_ip.html')
 
 @app.route('/rc')
 def user_driven():
     html_return = requests.get(URL).text
     image_url = URL + html_return.split("img src=")[1].split('><')[0]
     return render_template('rc.html',image_url=image_url)
-
-@app.route('/making_of')
-def tutorials():
-    return 'You are in the url designated to explain how this project made!'
-
-@app.route('/authors')
-def authors():
-    return 'You are in the url designated to introduce you to the 4 authors!'
 
 @app.route('/route_left')
 def get_move_left():
@@ -58,6 +55,11 @@ def upload_file():
     move = classify_image(savepath, graph, label)[0][0]
     os.remove(savepath)
     return move
+
+@app.route('/ai_move')
+def ai_move():
+    requests.get(session['ip'] + '/ai_move?host_url=' + request.base_url + '/upload')
+    return redirect('/rc')
 
 
 if __name__ == "__main__":
