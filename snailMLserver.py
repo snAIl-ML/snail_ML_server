@@ -58,9 +58,9 @@ def upload_file():
 
 @app.route('/ai_move')
 def ai_move():
-    requests.get(session['ip'] + '/ai_move?host_url=' + request.base_url + '/upload')
+    current_url = request.base_url.split("/ai_move")[0]
+    requests.get(session['ip'] + '/ai_move?host_url=' + current_url + '/upload')
     return redirect('/rc')
-
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=8000)
