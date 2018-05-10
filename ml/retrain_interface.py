@@ -22,7 +22,7 @@ def run_bash_command(command):
     os.system(command)
 
 def retrain_model(images_path, module_url=module_urls["inception_v3"]):
-    'Function to retrain model'
+    'Function to retrain modelr'
     model_name = "snail_" + time.strftime("%Y_%b_%d_%a_%H_%M", time.localtime())
     model_path = "./" + model_name
     run_bash_command(get_retrain_command(images_path, module_url, model_path, model_name))
