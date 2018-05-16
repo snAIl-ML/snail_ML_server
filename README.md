@@ -44,3 +44,6 @@ The card wall is here: [Trello](https://trello.com/b/rpLKHhdw/ml1)
 ### Team reflections
 The blog is here:
 [Blog](https://medium.com/team-snail)
+
+## Contributing 🎭
+Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on the process for submitting pull requests to us.
