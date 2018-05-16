@@ -47,3 +47,16 @@ The blog is here:
 
 ## Contributing 🎭
 Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on the process for submitting pull requests to us.
+
+## Authors 🖋
+* **Alejandro Pitarch Olivas**
+[Checkout my projects](https://github.com/xelAhcratiPsavilO)
+* **Giacomo Ninniri**
+[Checkout my projects](https://github.com/Gia1987)
+* **Irfan Durrani**
+[Checkout my projects](https://github.com/durranee)
+* **Vivian Allen**
+[Checkout my projects](https://github.com/VivianAllen)
+
+## Acknowledgments 🎓
+Makers academy on their training throught the last 3 months. 
