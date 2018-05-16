@@ -105,4 +105,4 @@ To check the test coverage, run the following command on the shell:
 [Checkout my projects](https://github.com/VivianAllen)
 
 ## Acknowledgments 🎓
-Makers academy on their training throught the last 3 months. 
+Makers academy on their training through the last 3 months. 
