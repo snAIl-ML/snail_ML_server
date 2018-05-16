@@ -14,6 +14,7 @@ As a team, our areas or focus are:
 - Learning process.
 - Code writing.
 - Team work and use of Agile methodologies.
+
 The Tech Stack used consists of:
 - Python.
 - TensorFlow.
@@ -45,8 +46,53 @@ The card wall is here: [Trello](https://trello.com/b/rpLKHhdw/ml1)
 The blog is here:
 [Blog](https://medium.com/team-snail)
 
+## About this Repository ☝️
+snail_ML_server contains the image classifier API as well as the web app that allows user interaction
+
+
 ## Contributing 🎭
 Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on the process for submitting pull requests to us.
+
+## Getting Started 🚴‍
+
+First, clone this repository. Then:
+
+To update your environment after cloning the repository, run the following command on the shell:
+```bash
+>pip3 install requirements
+```
+To start the server, run the following command on the shell:
+```bash
+>python snailMLserver.py # Start the server at localhost:8000
+```
+You can invoke testing through the Python interpreter from the shell:
+```bash
+>python -m pytest [...]
+```
+Run tests in a module from the shell:
+```bash
+>pytest test_mod.py
+```
+Run tests in a directory from the shell:
+```bash
+>pytest testing/
+```
+Run tests by keyword expressions from the shell:
+```bash
+>pytest -k "MyClass and not method"
+```
+To have python linter available, run the following command on the shell:
+```bash
+>pip install pylint
+```
+To analyse the code quality of a file, do so as in this example:
+```bash
+>pylint path_helper_main_ml.py
+```
+To check the test coverage, run the following command on the shell:
+```bash
+>py.test --cov test/
+```
 
 ## Authors 🖋
 * **Alejandro Pitarch Olivas**
